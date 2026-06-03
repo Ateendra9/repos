@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ateendra Srivastava | Software Engineer</title>
+    <title>Ateendra Srivastava | Cloud-Native Architect</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
@@ -13,6 +13,7 @@
             --text-muted: #8b949e;
             --accent: #3b82f6;
             --accent-glow: rgba(59, 130, 246, 0.4);
+            --gradient-primary: linear-gradient(135deg, #3b82f6, #8b5cf6);
             --border-color: rgba(255, 255, 255, 0.1);
         }
 
@@ -65,7 +66,34 @@
             z-index: 1000;
         }
 
-        .nav-logo { font-size: 1.2rem; font-weight: 700; color: var(--text-main); text-decoration: none; }
+        /* Stylish Logo */
+        .nav-logo { 
+            display: flex; 
+            align-items: center; 
+            gap: 0.8rem; 
+            font-size: 1.4rem; 
+            font-weight: 800; 
+            color: var(--text-main); 
+            text-decoration: none; 
+            letter-spacing: -0.5px;
+        }
+        .logo-symbol {
+            width: 36px;
+            height: 36px;
+            background: var(--gradient-primary);
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 1.4rem;
+            font-weight: 900;
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
+        }
+        .logo-symbol::before {
+            content: "A";
+        }
+        
         .nav-links a {
             color: var(--text-muted);
             text-decoration: none;
@@ -98,18 +126,24 @@
             font-weight: 600;
         }
 
-        h1 { font-size: 4rem; line-height: 1.1; margin-bottom: 1rem; }
+        h1 { font-size: 3.8rem; line-height: 1.1; margin-bottom: 1rem; }
         h1 span { color: var(--accent); }
 
-        .hero-desc { font-size: 1.2rem; color: var(--text-muted); max-width: 700px; margin-bottom: 2.5rem; }
+        .hero-desc { font-size: 1.15rem; color: var(--text-muted); max-width: 750px; margin-bottom: 2.5rem; }
 
-        .btn-group { display: flex; gap: 1rem; }
+        .btn-group { display: flex; gap: 1rem; flex-wrap: wrap; }
         .btn {
             padding: 0.8rem 2rem;
             border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
         }
         .btn-primary { background: var(--accent); color: #fff; box-shadow: 0 4px 15px var(--accent-glow); }
         .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(59,130,246,0.6); }
@@ -137,7 +171,7 @@
 
         /* Experience Timeline */
         .timeline { border-left: 2px solid var(--border-color); padding-left: 2rem; margin-left: 1rem; }
-        .timeline-item { position: relative; margin-bottom: 3rem; }
+        .timeline-item { position: relative; margin-bottom: 3.5rem; }
         .timeline-item::before {
             content: ""; position: absolute; left: -39px; top: 0; width: 14px; height: 14px;
             background: var(--accent); border-radius: 50%; border: 4px solid var(--bg-dark);
@@ -146,7 +180,7 @@
         .timeline-title { font-size: 1.4rem; margin-bottom: 0.2rem; }
         .timeline-company { color: var(--text-muted); margin-bottom: 1rem; font-weight: 500; }
         .timeline-item ul { margin-left: 1.5rem; color: var(--text-muted); }
-        .timeline-item ul li { margin-bottom: 0.5rem; }
+        .timeline-item ul li { margin-bottom: 0.8rem; }
 
         /* Project Cards */
         .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
@@ -184,7 +218,10 @@
     <div class="bg-glow glow-2"></div>
 
     <nav>
-        <a href="#home" class="nav-logo">AS.</a>
+        <a href="#home" class="nav-logo">
+            <div class="logo-symbol"></div>
+            <span>Srivastava.</span>
+        </a>
         <div class="nav-links">
             <a href="#experience">Experience</a>
             <a href="#projects">Projects</a>
@@ -196,11 +233,13 @@
         <!-- HERO SECTION -->
         <section id="home">
             <div class="reveal active">
-                <div class="status-badge"><i class="fa-solid fa-code-branch"></i> Open to Architecture & Engineering Roles</div>
-                <h1>Hi, I'm <span>Ateendra</span><br>Full-Stack Engineer.</h1>
-                <p class="hero-desc">I architect scalable enterprise solutions, build intelligent AI-driven platforms, and solve complex algorithmic bottlenecks. With nearly 3 years of production experience at Daimler Truck Innovation Center India, I bridge the gap between high-performance backends and intuitive user interfaces.</p>
+                <div class="status-badge"><i class="fa-solid fa-microchip"></i> Cloud-Native Architect & Systems Engineer</div>
+                <h1>Hi, I'm <span>Ateendra</span><br>Algorithmic Optimization Specialist.</h1>
+                <p class="hero-desc">I architect scalable enterprise solutions, build intelligent AI-driven platforms, and specialize in resolving complex algorithmic bottlenecks. With high-level production experience at Daimler Truck Innovation Center India, I bridge the gap between high-performance backends and intuitive user interfaces. I am actively preparing for advanced graduate-level studies to further pursue research-oriented applications of Artificial Intelligence.</p>
                 <div class="btn-group">
-                    <a href="mailto:ateendrasrivastava806@gmail.com" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> Let's Connect</a>
+                    <button class="btn btn-primary" onclick="copyEmail()">
+                        <i class="fa-solid fa-copy"></i> <span id="email-text">ateendrasrivastava806@gmail.com</span>
+                    </button>
                     <a href="https://github.com/Ateendra9" target="_blank" class="btn btn-secondary"><i class="fa-brands fa-github"></i> GitHub</a>
                     <a href="https://linkedin.com/in/ateendra-srivastava-749050199" target="_blank" class="btn btn-secondary"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
                 </div>
@@ -209,15 +248,15 @@
             <div class="stats-grid reveal">
                 <div class="stat-item">
                     <h3>859+</h3>
-                    <p>LeetCode Problems Solved</p>
+                    <p>LeetCode Algorithmic Solutions</p>
                 </div>
                 <div class="stat-item">
                     <h3>3</h3>
-                    <p>Azure Certifications</p>
+                    <p>Azure Certifications (Cloud & AI)</p>
                 </div>
                 <div class="stat-item">
                     <h3>3+</h3>
-                    <p>Years Enterprise Exp.</p>
+                    <p>Years Industrial Experience</p>
                 </div>
             </div>
         </section>
@@ -228,29 +267,45 @@
             <div class="timeline">
                 <div class="timeline-item">
                     <span class="timeline-date">July 2023 - Present</span>
-                    <h3 class="timeline-title">Full-Stack Software Developer</h3>
+                    <h3 class="timeline-title">Full-Stack Software Engineer</h3>
                     <div class="timeline-company">Daimler Truck Innovation Center India</div>
                     <ul>
                         <li>Spearheading the architecture and deployment of robust enterprise-level software, ensuring high availability and seamless data flow across distributed systems.</li>
-                        <li>Optimizing frontend-backend integration resulting in significant latency reduction and improved end-user performance metrics.</li>
-                        <li>Driving the lifecycle of feature development from conceptualization to deployment, incorporating rigorous debugging and scalable application workflows.</li>
+                        <li>Collaborating with global engineering hubs, aligning technical strategies with European corporate standards established in regions like Frankfurt and Stuttgart.</li>
+                        <li>Optimizing frontend-backend integration resulting in significant latency reduction and improved end-user performance metrics for mission-critical applications.</li>
                     </ul>
                 </div>
                 <div class="timeline-item">
                     <span class="timeline-date">Jan 2022 - Apr 2022</span>
-                    <h3 class="timeline-title">Full-Stack Developer Intern</h3>
+                    <h3 class="timeline-title">Full-Stack Cloud Architect Intern</h3>
                     <div class="timeline-company">HighRadius Corporation</div>
                     <ul>
-                        <li>Architected components for an AI-enabled B2B Fintech cloud platform, enhancing data processing efficiency.</li>
-                        <li>Executed comprehensive frontend-backend integration and automated testing to ensure high reliability.</li>
+                        <li>Architected core components for an AI-enabled B2B Fintech cloud platform, substantially enhancing enterprise data processing efficiency.</li>
+                        <li>Executed comprehensive frontend-backend integration and automated testing to ensure high reliability in financial tech environments.</li>
                     </ul>
                 </div>
                 <div class="timeline-item">
                     <span class="timeline-date">Sept 2021 - Dec 2021</span>
-                    <h3 class="timeline-title">Full-Stack Developer Intern</h3>
+                    <h3 class="timeline-title">Frontend Architecture Intern</h3>
                     <div class="timeline-company">Shape AI</div>
                     <ul>
-                        <li>Engineered high-performance web applications utilizing modern JavaScript frameworks, significantly upgrading legacy systems.</li>
+                        <li>Architected scalable frontend solutions and high-throughput web interfaces using cutting-edge frameworks, dramatically accelerating deployment cycles and modernizing legacy infrastructures.</li>
+                    </ul>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-date">Aug 2021 - Sept 2021</span>
+                    <h3 class="timeline-title">Embedded Systems & IoT Researcher</h3>
+                    <div class="timeline-company">Ministry of Micro, Small & Medium Enterprises (MSME)</div>
+                    <ul>
+                        <li>Pioneered industrial IoT research by engineering sophisticated sensor arrays and embedded micro-controllers, laying the groundwork for next-generation automated tracking systems and rapid hardware automation.</li>
+                    </ul>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-date">June 2021 - Sept 2021</span>
+                    <h3 class="timeline-title">National Sponsorship Head</h3>
+                    <div class="timeline-company">Youth India Foundation</div>
+                    <ul>
+                        <li>Demonstrated executive leadership by driving nationwide corporate relations, negotiating high-value partnerships, and leading cross-functional teams to secure crucial funding.</li>
                     </ul>
                 </div>
             </div>
@@ -261,29 +316,42 @@
             <h2 class="section-title">Engineering Showcase</h2>
             <div class="project-grid">
                 <div class="project-card">
-                    <i class="fa-solid fa-stethoscope project-icon"></i>
-                    <h3 class="project-title">AI Disease Prediction Engine</h3>
-                    <p class="project-desc">Engineered an end-to-end healthcare platform utilizing Machine Learning to predict potential illnesses from user-inputted symptoms with high accuracy. Integrated a secure doctor-patient appointment scheduling system.</p>
+                    <i class="fa-solid fa-network-wired project-icon"></i>
+                    <h3 class="project-title">Enterprise Healthcare AI Diagnostics</h3>
+                    <p class="project-desc">Engineered an end-to-end predictive healthcare platform utilizing advanced Machine Learning models to forecast potential illnesses from symptomatic data, fully integrated with secure patient-doctor scheduling logic.</p>
                     <div class="tech-stack">
                         <span class="tech-tag">Python</span>
                         <span class="tech-tag">Machine Learning</span>
                         <span class="tech-tag">Full-Stack</span>
                     </div>
                 </div>
+                
                 <div class="project-card">
-                    <i class="fa-solid fa-chart-line project-icon"></i>
-                    <h3 class="project-title">Fintech Risk Assessment Model</h3>
-                    <p class="project-desc">Developed and trained a predictive machine learning model using vast historical repayment datasets to accurately forecast loan default risks, streamlining the financial vetting process.</p>
+                    <i class="fa-brands fa-react project-icon"></i>
+                    <h3 class="project-title">Scalable PWA Architecture</h3>
+                    <p class="project-desc">Architected a highly optimized, production-ready Progressive Web Application (PWA) utilizing React. Engineered a custom build pipeline with Webpack, Babel, and intelligent code splitting to drastically minimize bundle sizes and maximize deployment performance.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Webpack</span>
+                        <span class="tech-tag">PWA / Node</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <i class="fa-solid fa-chart-pie project-icon"></i>
+                    <h3 class="project-title">Predictive Financial Risk Modeling</h3>
+                    <p class="project-desc">Developed and trained a sophisticated predictive machine learning model using vast historical repayment datasets to accurately forecast loan default risks, streamlining high-stakes financial vetting processes.</p>
                     <div class="tech-stack">
                         <span class="tech-tag">TensorFlow</span>
                         <span class="tech-tag">Data Analytics</span>
                         <span class="tech-tag">Python</span>
                     </div>
                 </div>
+                
                 <div class="project-card">
-                    <i class="fa-solid fa-robot project-icon"></i>
-                    <h3 class="project-title">IoT Smart Prosthetic Hand</h3>
-                    <p class="project-desc">Designed a fully functional 3D-printed prosthetic limb controlled by embedded IoT technology. Integrated flex sensors and servo motors to achieve real-time, precise articulation based on physical inputs.</p>
+                    <i class="fa-solid fa-microchip project-icon"></i>
+                    <h3 class="project-title">Bio-Mechanical Systems Engineering</h3>
+                    <p class="project-desc">Pioneered cost-effective embedded bio-robotics by designing a fully functional 3D-printed prosthetic limb. Integrated complex IoT arrays, flex sensors, and servo motors to achieve real-time, highly precise physical articulation.</p>
                     <div class="tech-stack">
                         <span class="tech-tag">IoT / Embedded Systems</span>
                         <span class="tech-tag">C / C++</span>
@@ -295,7 +363,7 @@
 
         <!-- SKILLS SECTION -->
         <section id="skills" class="reveal">
-            <h2 class="section-title">Technical Arsenal & Beyond</h2>
+            <h2 class="section-title">Technical Arsenal</h2>
             
             <div class="skills-container">
                 <div class="skill-category">
@@ -314,7 +382,7 @@
                 <div class="skill-category">
                     <h3>Cloud, Databases & AI</h3>
                     <div class="skill-list">
-                        <div class="skill-pill"><i class="fa-brands fa-microsoft" style="color: #00a4ef;"></i> Azure Expert (AZ-400, AZ-900)</div>
+                        <div class="skill-pill"><i class="fa-brands fa-microsoft" style="color: #00a4ef;"></i> Azure DevOps Expert (AZ-400)</div>
                         <div class="skill-pill"><i class="fa-solid fa-brain" style="color: #ff9900;"></i> Azure AI (AI-900)</div>
                         <div class="skill-pill"><i class="fa-solid fa-database" style="color: #4DB33D;"></i> MongoDB</div>
                         <div class="skill-pill"><i class="fa-solid fa-server" style="color: #00758F;"></i> MySQL / Oracle</div>
@@ -323,11 +391,11 @@
                 </div>
 
                 <div class="skill-category">
-                    <h3>Beyond the Code</h3>
+                    <h3>High-Performance Pursuits</h3>
                     <div class="skill-list">
-                        <div class="skill-pill"><i class="fa-solid fa-dumbbell" style="color: #8b949e;"></i> Fitness & Gym Training</div>
+                        <div class="skill-pill"><i class="fa-solid fa-dumbbell" style="color: #8b949e;"></i> Elite Fitness & Strength Training</div>
                         <div class="skill-pill"><i class="fa-solid fa-flag-checkered" style="color: #8b949e;"></i> Formula 1 & Sim Racing</div>
-                        <div class="skill-pill"><i class="fa-solid fa-plane-departure" style="color: #8b949e;"></i> Frequent Traveler</div>
+                        <div class="skill-pill"><i class="fa-solid fa-plane-departure" style="color: #8b949e;"></i> Global Traveler</div>
                     </div>
                 </div>
             </div>
@@ -335,6 +403,21 @@
     </div>
 
     <script>
+        // Copy Email Logic
+        function copyEmail() {
+            const email = "ateendrasrivastava806@gmail.com";
+            navigator.clipboard.writeText(email).then(() => {
+                const emailTextSpan = document.getElementById("email-text");
+                const originalText = emailTextSpan.innerText;
+                emailTextSpan.innerText = "Copied to Clipboard!";
+                setTimeout(() => {
+                    emailTextSpan.innerText = originalText;
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy text: ', err);
+            });
+        }
+
         // Scroll Reveal Logic
         function reveal() {
             var reveals = document.querySelectorAll(".reveal");
